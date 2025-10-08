@@ -82,7 +82,7 @@ namespace HotelReservationSystem.Controllers
                 var customerCount = await _context.Customers.CountAsync();
                 var roomCount = await _context.Rooms.CountAsync();
                 
-                ViewBag.DatabaseInfo = $"Database connected. Customers: {customerCount}, Rooms: {roomCount}";
+                ViewBag.DatabaseInfo = $"Customers: {customerCount}, Rooms: {roomCount}";
                 
                 var reservations = await _context.Reservations
                     .Include(r => r.Customer)

@@ -20,6 +20,11 @@ namespace HotelReservationSystem.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            // Configure RoomType enum to be stored as string in database
+            modelBuilder.Entity<Room>()
+                .Property(r => r.Type)
+                .HasConversion<string>();
+
             // Seed sample rooms
             modelBuilder.Entity<Room>().HasData(
                 new Room { RoomId = 1, RoomNumber = "101", Type = RoomType.Standard, NightlyRate = 120, IsAvailable = true },
