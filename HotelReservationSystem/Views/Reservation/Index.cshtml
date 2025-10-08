@@ -4,6 +4,27 @@
 
 <h2>My Reservations</h2>
 
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger">
+        @TempData["ErrorMessage"]
+    </div>
+}
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["SuccessMessage"]
+    </div>
+}
+
+@if (ViewBag.DatabaseInfo != null)
+{
+    <div class="alert alert-info">
+        @ViewBag.DatabaseInfo
+    </div>
+}
+
 @if (ViewBag.Reservations != null && ((System.Collections.IList)ViewBag.Reservations).Count > 0)
 {
     <div class="table-responsive">

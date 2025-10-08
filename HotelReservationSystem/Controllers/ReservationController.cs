@@ -44,7 +44,8 @@ namespace HotelReservationSystem.Controllers
             var customer = new Customer
             {
                 FullName = FullName,
-                Email = Email
+                Email = Email,
+                IdNumber = "TEMP-" + DateTime.Now.Ticks.ToString() // Temporary ID number
             };
             _context.Customers.Add(customer);
             await _context.SaveChangesAsync();
@@ -75,15 +76,31 @@ namespace HotelReservationSystem.Controllers
         // GET: Reservation
         public async Task<IActionResult> Index()
         {
-            var reservations = await _context.Reservations
-                .Include(r => r.Customer)
-                .Include(r => r.Room)
-                .OrderByDescending(r => r.CreatedAt)
-                .Take(10)
-                .ToListAsync();
+            try
+            {
+                // Test basic database connectivity first
+                var customerCount = await _context.Customers.CountAsync();
+                var roomCount = await _context.Rooms.CountAsync();
+                
+                ViewBag.DatabaseInfo = $"Database connected. Customers: {customerCount}, Rooms: {roomCount}";
+                
+                var reservations = await _context.Reservations
+                    .Include(r => r.Customer)
+                    .Include(r => r.Room)
+                    .OrderByDescending(r => r.CreatedAt)
+                    .Take(10)
+                    .ToListAsync();
 
-            ViewBag.Reservations = reservations;
-            return View();
+                ViewBag.Reservations = reservations;
+                return View();
+            }
+            catch (Exception ex)
+            {
+                // Log the error or display it for debugging
+                TempData["ErrorMessage"] = $"Database error: {ex.Message}";
+                ViewBag.Reservations = new List<Reservation>();
+                return View();
+            }
         }
 
         // GET: Reservation/Edit/5
