@@ -77,6 +77,7 @@ namespace HotelReservationSystem.Controllers
         {
             var reservations = await _context.Reservations
                 .Include(r => r.Customer)
+                .Include(r => r.Room)
                 .OrderByDescending(r => r.CreatedAt)
                 .Take(10)
                 .ToListAsync();
@@ -88,7 +89,11 @@ namespace HotelReservationSystem.Controllers
         // GET: Reservation/Edit/5
         public async Task<IActionResult> Edit(int id)
         {
-            var reservation = await _context.Reservations.FindAsync(id);
+            var reservation = await _context.Reservations
+                .Include(r => r.Customer)
+                .Include(r => r.Room)
+                .FirstOrDefaultAsync(r => r.ReservationId == id);
+                
             if (reservation == null) return NotFound();
 
             ViewBag.ReservationId = reservation.ReservationId;
@@ -131,7 +136,8 @@ namespace HotelReservationSystem.Controllers
             // Update reservation
             reservation.ArrivalDate = ArrivalDate;
             reservation.DepartureDate = DepartureDate;
-            reservation.RoomId = (int)Enum.Parse<RoomType>(RoomType);
+            // Note: RoomId assignment logic would need to find room by type
+            // For now, keeping the existing room assignment
 
             _context.Update(reservation);
             await _context.SaveChangesAsync();

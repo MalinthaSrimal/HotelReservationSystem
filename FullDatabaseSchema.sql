@@ -39,7 +39,7 @@ GO
 CREATE TABLE Rooms (
     RoomId INT IDENTITY(1,1) PRIMARY KEY,
     RoomNumber NVARCHAR(10) NOT NULL UNIQUE,
-    RoomType NVARCHAR(20) NOT NULL CHECK (RoomType IN ('Standard', 'Deluxe', 'Suite', 'ResidentialSuite')),
+    Type NVARCHAR(20) NOT NULL CHECK (Type IN ('Standard', 'Deluxe', 'Suite', 'ResidentialSuite')),
     NightlyRate DECIMAL(10,2) NOT NULL,
     WeeklyRate DECIMAL(10,2) DEFAULT 0,   -- For ResidentialSuite
     MonthlyRate DECIMAL(10,2) DEFAULT 0,  -- For ResidentialSuite
@@ -114,7 +114,7 @@ CREATE INDEX IX_Customers_Email ON Customers(Email);
 CREATE INDEX IX_Customers_IdNumber ON Customers(IdNumber);
 
 -- Room indexes
-CREATE INDEX IX_Rooms_RoomType ON Rooms(RoomType);
+CREATE INDEX IX_Rooms_Type ON Rooms(Type);
 CREATE INDEX IX_Rooms_IsAvailable ON Rooms(IsAvailable);
 
 -- ======================
@@ -122,7 +122,7 @@ CREATE INDEX IX_Rooms_IsAvailable ON Rooms(IsAvailable);
 -- ======================
 
 -- Rooms
-INSERT INTO Rooms (RoomNumber, RoomType, NightlyRate, WeeklyRate, MonthlyRate, IsAvailable, Description)
+INSERT INTO Rooms (RoomNumber, Type, NightlyRate, WeeklyRate, MonthlyRate, IsAvailable, Description)
 VALUES
 ('101', 'Standard', 120, 0, 0, 1, 'Standard room with queen bed, city view'),
 ('102', 'Standard', 120, 0, 0, 1, 'Standard room with twin beds, garden view'),
@@ -163,7 +163,7 @@ SELECT
     r.ReservationNumber,
     c.FullName AS GuestName,
     rm.RoomNumber,
-    rm.RoomType,
+    rm.Type AS RoomType,
     r.ArrivalDate,
     r.DepartureDate,
     r.IsCheckedIn,
@@ -203,14 +203,14 @@ BEGIN
     SELECT 
         r.RoomId,
         r.RoomNumber,
-        r.RoomType,
+        r.Type,
         r.NightlyRate,
         r.WeeklyRate,
         r.MonthlyRate,
         r.Description
     FROM Rooms r
     WHERE r.IsAvailable = 1
-        AND (@RoomType IS NULL OR r.RoomType = @RoomType)
+        AND (@RoomType IS NULL OR r.Type = @RoomType)
         AND r.RoomId NOT IN (
             SELECT res.RoomId 
             FROM Reservations res

@@ -23,8 +23,8 @@
                 {
                     <tr>
                         <td>@res.ReservationId</td>
-                        <td>@res.FullName</td>
-                        <td>@res.RoomType</td>
+                        <td>@res.Customer?.FullName</td>
+                        <td>@res.Room?.Type</td>
                         <td>@res.ArrivalDate.ToString("dd/MM/yyyy") – @res.DepartureDate.ToString("dd/MM/yyyy")</td>
                         <td>
                             @if (res.IsConfirmed)
