@@ -13,36 +13,6 @@
     <button type="submit" class="btn btn-primary">🔍 Find Guest</button>
 </form>
 
-<form asp-controller="Billing" asp-action="ProcessCheckout" method="post">
-        <div class="card mt-4">
-            <div class="card-header bg-info text-white">
-                Guest: @ViewBag.Guest.FullName | Room: @ViewBag.Guest.RoomId
-            </div>
-            <div class="card-body">
-                <p><strong>Check-in:</strong> @ViewBag.Guest.CheckInDate.ToString("dd/MM/yyyy")</p>
-                <p><strong>Scheduled Checkout:</strong> @ViewBag.Guest.ScheduledCheckout.ToString("dd/MM/yyyy")</p>
-                <p><strong>Actual Checkout:</strong> @DateTime.Today.ToString("dd/MM/yyyy")</p>
-            </div>
-        </div>
-</form>
-
-@* @if (ViewBag.Guest != null)
-{
-    <div class="card mt-4">
-        <div class="card-header bg-info text-white">
-            Guest: @ViewBag.Guest.FullName | Room: @ViewBag.Guest.RoomId
-        </div>
-        <div class="card-body">
-            <p><strong>Check-in:</strong> @ViewBag.Guest.CheckInDate.ToString("dd/MM/yyyy")</p>
-            <p><strong>Scheduled Checkout:</strong> @ViewBag.Guest.ScheduledCheckout.ToString("dd/MM/yyyy")</p>
-            <p><strong>Actual Checkout:</strong> @DateTime.Today.ToString("dd/MM/yyyy")</p>
-
-            @if (ViewBag.IsOverdue)
-            {
-                <div class="alert alert-warning">
-                    ⚠️ Guest stayed past checkout. Additional night charge applied.
-                </div>
-            } *@
 @{
     var guest = ViewBag.Guest as Reservation; // Cast to actual type
     var isOverdue = ViewBag.IsOverdue as bool? ?? false;
@@ -50,52 +20,51 @@
 
 @if (guest != null)
 {
-    <div class="card mt-4">
-        <div class="card-header bg-info text-white">
-            Guest: @guest.Customer?.FullName | Room: @guest.Room?.RoomNumber
-        </div>
-        <div class="card-body">
-            <p><strong>Check-in:</strong> @guest.ArrivalDate.ToString("dd/MM/yyyy")</p>
-            <p><strong>Scheduled Checkout:</strong> @guest.DepartureDate.ToString("dd/MM/yyyy")</p>
-            <p><strong>Actual Checkout:</strong> @DateTime.Today.ToString("dd/MM/yyyy")</p>
+    <form asp-controller="Billing" asp-action="ProcessCheckout" method="post">
+        <input type="hidden" name="SearchTerm" value="@guest.Room?.RoomNumber" />
+        
+        <div class="card mt-4">
+            <div class="card-header bg-info text-white">
+                Guest: @guest.Customer?.FullName | Room: @guest.Room?.RoomNumber
+            </div>
+            <div class="card-body">
+                <p><strong>Check-in:</strong> @guest.ArrivalDate.ToString("dd/MM/yyyy")</p>
+                <p><strong>Scheduled Checkout:</strong> @guest.DepartureDate.ToString("dd/MM/yyyy")</p>
+                <p><strong>Actual Checkout:</strong> @DateTime.Today.ToString("dd/MM/yyyy")</p>
 
-            @if (isOverdue)
-            {
-                <div class="alert alert-warning">
-                    ⚠️ Guest stayed past checkout. Additional night charge applied.
+                @if (isOverdue)
+                {
+                    <div class="alert alert-warning">
+                        ⚠️ Guest stayed past checkout. Additional night charge applied.
+                    </div>
+                }
+
+                <h5>Additional Charges</h5>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="Restaurant" id="rest">
+                    <label class="form-check-label" for="rest">Restaurant ($45)</label>
                 </div>
-            }
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="RoomService" id="rs">
+                    <label class="form-check-label" for="rs">Room Service ($30)</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="Laundry" id="laundry">
+                    <label class="form-check-label" for="laundry">Laundry ($20)</label>
+                </div>
 
-            <!-- Rest of form -->
+                <h5 class="mt-3">Payment Method</h5>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="PaymentMethod" value="Cash" id="cash" checked>
+                    <label class="form-check-label" for="cash">Cash</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="PaymentMethod" value="CreditCard" id="cc">
+                    <label class="form-check-label" for="cc">Credit Card</label>
+                </div>
+              
+                <button type="submit" name="action" value="process" class="btn btn-success mt-3">💳 Process Checkout & Generate Bill</button>
+            </div>
         </div>
-    </div>
-}
-
-            <h5>Additional Charges</h5>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" name="Restaurant" id="rest">
-                <label class="form-check-label" for="rest">Restaurant ($45)</label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" name="RoomService" id="rs">
-                <label class="form-check-label" for="rs">Room Service ($30)</label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" name="Laundry" id="laundry">
-                <label class="form-check-label" for="laundry">Laundry ($20)</label>
-            </div>
-
-            <h5 class="mt-3">Payment Method</h5>
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="PaymentMethod" value="Cash" id="cash" checked>
-                <label class="form-check-label" for="cash">Cash</label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="PaymentMethod" value="CreditCard" id="cc">
-                <label class="form-check-label" for="cc">Credit Card</label>
-            </div>
-          
-            <button type="submit" name="action" value="process" class="btn btn-success mt-3">💳 Process Checkout & Generate Bill</button>
-        </div>
-    </div>
+    </form>
 }

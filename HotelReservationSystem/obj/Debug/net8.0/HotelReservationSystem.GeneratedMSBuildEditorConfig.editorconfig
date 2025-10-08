@@ -9,73 +9,71 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = HotelReservationSystem
 build_property.RootNamespace = HotelReservationSystem
-build_property.ProjectDir = F:\ESOFT SE Top-UP\Semester 1\ASE\CW\CW1\HotelReservationSystem\HotelReservationSystem\
+build_property.ProjectDir = /Users/malinthasrimal/Documents/HotelReservationSystem/HotelReservationSystem/
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = F:\ESOFT SE Top-UP\Semester 1\ASE\CW\CW1\HotelReservationSystem\HotelReservationSystem
+build_property.MSBuildProjectDirectory = /Users/malinthasrimal/Documents/HotelReservationSystem/HotelReservationSystem
 build_property._RazorSourceGeneratorDebug = 
-build_property.EffectiveAnalysisLevelStyle = 8.0
-build_property.EnableCodeStyleSeverity = 
 
-[F:/ESOFT SE Top-UP/Semester 1/ASE/CW/CW1/HotelReservationSystem/HotelReservationSystem/Views/Billing/CheckoutStatement.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmlsbGluZ1xDaGVja291dFN0YXRlbWVudC5jc2h0bWw=
+[/Users/malinthasrimal/Documents/HotelReservationSystem/HotelReservationSystem/Views/Billing/CheckoutStatement.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQmlsbGluZy9DaGVja291dFN0YXRlbWVudC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/ESOFT SE Top-UP/Semester 1/ASE/CW/CW1/HotelReservationSystem/HotelReservationSystem/Views/Customer/CheckIn.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJcQ2hlY2tJbi5jc2h0bWw=
+[/Users/malinthasrimal/Documents/HotelReservationSystem/HotelReservationSystem/Views/Customer/CheckIn.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ3VzdG9tZXIvQ2hlY2tJbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/ESOFT SE Top-UP/Semester 1/ASE/CW/CW1/HotelReservationSystem/HotelReservationSystem/Views/Customer/CheckOut.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJcQ2hlY2tPdXQuY3NodG1s
+[/Users/malinthasrimal/Documents/HotelReservationSystem/HotelReservationSystem/Views/Customer/CheckOut.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ3VzdG9tZXIvQ2hlY2tPdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/ESOFT SE Top-UP/Semester 1/ASE/CW/CW1/HotelReservationSystem/HotelReservationSystem/Views/Home/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+[/Users/malinthasrimal/Documents/HotelReservationSystem/HotelReservationSystem/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9JbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/ESOFT SE Top-UP/Semester 1/ASE/CW/CW1/HotelReservationSystem/HotelReservationSystem/Views/Home/Privacy.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+[/Users/malinthasrimal/Documents/HotelReservationSystem/HotelReservationSystem/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9Qcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/ESOFT SE Top-UP/Semester 1/ASE/CW/CW1/HotelReservationSystem/HotelReservationSystem/Views/Report/Daily.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0XERhaWx5LmNzaHRtbA==
+[/Users/malinthasrimal/Documents/HotelReservationSystem/HotelReservationSystem/Views/Report/Daily.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUmVwb3J0L0RhaWx5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/ESOFT SE Top-UP/Semester 1/ASE/CW/CW1/HotelReservationSystem/HotelReservationSystem/Views/Reservation/Cancel.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzZXJ2YXRpb25cQ2FuY2VsLmNzaHRtbA==
+[/Users/malinthasrimal/Documents/HotelReservationSystem/HotelReservationSystem/Views/Reservation/Cancel.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUmVzZXJ2YXRpb24vQ2FuY2VsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/ESOFT SE Top-UP/Semester 1/ASE/CW/CW1/HotelReservationSystem/HotelReservationSystem/Views/Reservation/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzZXJ2YXRpb25cQ3JlYXRlLmNzaHRtbA==
+[/Users/malinthasrimal/Documents/HotelReservationSystem/HotelReservationSystem/Views/Reservation/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUmVzZXJ2YXRpb24vQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/ESOFT SE Top-UP/Semester 1/ASE/CW/CW1/HotelReservationSystem/HotelReservationSystem/Views/Reservation/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzZXJ2YXRpb25cRWRpdC5jc2h0bWw=
+[/Users/malinthasrimal/Documents/HotelReservationSystem/HotelReservationSystem/Views/Reservation/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUmVzZXJ2YXRpb24vRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/ESOFT SE Top-UP/Semester 1/ASE/CW/CW1/HotelReservationSystem/HotelReservationSystem/Views/Reservation/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzZXJ2YXRpb25cSW5kZXguY3NodG1s
+[/Users/malinthasrimal/Documents/HotelReservationSystem/HotelReservationSystem/Views/Reservation/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUmVzZXJ2YXRpb24vSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/ESOFT SE Top-UP/Semester 1/ASE/CW/CW1/HotelReservationSystem/HotelReservationSystem/Views/Shared/Error.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+[/Users/malinthasrimal/Documents/HotelReservationSystem/HotelReservationSystem/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL0Vycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/ESOFT SE Top-UP/Semester 1/ASE/CW/CW1/HotelReservationSystem/HotelReservationSystem/Views/Shared/_ValidationScriptsPartial.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+[/Users/malinthasrimal/Documents/HotelReservationSystem/HotelReservationSystem/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/ESOFT SE Top-UP/Semester 1/ASE/CW/CW1/HotelReservationSystem/HotelReservationSystem/Views/_ViewImports.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+[/Users/malinthasrimal/Documents/HotelReservationSystem/HotelReservationSystem/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/ESOFT SE Top-UP/Semester 1/ASE/CW/CW1/HotelReservationSystem/HotelReservationSystem/Views/_ViewStart.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+[/Users/malinthasrimal/Documents/HotelReservationSystem/HotelReservationSystem/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/ESOFT SE Top-UP/Semester 1/ASE/CW/CW1/HotelReservationSystem/HotelReservationSystem/Views/Shared/_Layout.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = b-q613whmmv3
+[/Users/malinthasrimal/Documents/HotelReservationSystem/HotelReservationSystem/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-vvezr619we

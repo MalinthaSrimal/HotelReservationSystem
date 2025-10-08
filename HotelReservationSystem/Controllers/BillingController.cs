@@ -29,7 +29,9 @@ namespace HotelReservationSystem.Controllers
                 .Include(r => r.Room)
                 .FirstOrDefaultAsync(r =>
                     r.IsCheckedIn && !r.CheckedOutAt.HasValue &&
-                    (r.Customer!.FullName.Contains(SearchTerm) || r.Room!.RoomNumber == SearchTerm));
+                    (r.Customer!.FullName.Contains(SearchTerm) || 
+                     r.Room!.RoomNumber == SearchTerm ||
+                     r.ReservationNumber == SearchTerm));
 
             if (reservation == null)
             {
