@@ -1,0 +1,42 @@
+﻿@{
+    ViewData["Title"] = "Check In Guest";
+}
+
+<h2>Guest Check-In</h2>
+
+<form asp-action="CheckIn" method="post">
+    <div class="mb-3">
+        <label class="form-label">Reservation ID (Optional – for walk-ins, leave blank)</label>
+        <input type="text" name="ReservationId" class="form-control" placeholder="e.g., RES-1001" />
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-md-6">
+            <label class="form-label">Full Name <span class="text-danger">*</span></label>
+            <input type="text" name="FullName" class="form-control" required />
+        </div>
+        <div class="col-md-6">
+            <label class="form-label">ID / Passport Number <span class="text-danger">*</span></label>
+            <input type="text" name="IdNumber" class="form-control" required />
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Assign Room <span class="text-danger">*</span></label>
+        <select name="RoomId" class="form-select" required>
+            <option value="">-- Select Available Room --</option>
+            <option value="101">Room 101 – Standard</option>
+            <option value="102">Room 102 – Standard</option>
+            <option value="201">Room 201 – Deluxe</option>
+            <option value="301">Suite 301 – Executive</option>
+            <option value="R101">Residential Suite R101</option>
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Checkout Date</label>
+        <input type="date" name="CheckoutDate" class="form-control" value="@DateTime.Today.AddDays(1).ToString("yyyy-MM-dd")" />
+    </div>
+
+    <button type="submit" class="btn btn-success">✅ Complete Check-In</button>
+</form>

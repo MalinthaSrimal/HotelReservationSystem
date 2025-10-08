@@ -1,0 +1,19 @@
+﻿@{
+    ViewData["Title"] = "Cancel Reservation";
+}
+
+<div class="card text-center" style="max-width: 600px; margin: 2rem auto;">
+    <div class="card-header bg-danger text-white">
+        Cancel Reservation?
+    </div>
+    <div class="card-body">
+        <p>Are you sure you want to cancel reservation <strong>#@ViewBag.ReservationId</strong> for <strong>@ViewBag.FullName</strong>?</p>
+        <p class="text-muted">This action cannot be undone.</p>
+
+        <form asp-action="CancelConfirmed" method="post" style="display:inline;">
+            <input type="hidden" name="id" value="@ViewBag.ReservationId" />
+            <button type="submit" class="btn btn-danger">Yes, Cancel</button>
+        </form>
+        <a asp-action="Index" class="btn btn-secondary">No, Go Back</a>
+    </div>
+</div>

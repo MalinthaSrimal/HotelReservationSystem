@@ -1,0 +1,66 @@
+﻿@{
+    ViewData["Title"] = "Daily Report";
+}
+
+<h2>Daily Occupancy & Revenue Report</h2>
+<p class="text-muted">Report for: <strong>@ViewBag.ReportDate.ToString("dd MMMM yyyy")</strong></p>
+
+<div class="row">
+    <div class="col-md-4">
+        <div class="card text-white bg-primary mb-3">
+            <div class="card-header">Occupied Rooms</div>
+            <div class="card-body">
+                <h3>@ViewBag.OccupiedRooms / @ViewBag.TotalRooms</h3>
+                <p>Occupancy Rate: @ViewBag.OccupancyRate%</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card text-white bg-success mb-3">
+            <div class="card-header">Total Revenue</div>
+            <div class="card-body">
+                <h3>$@ViewBag.TotalRevenue</h3>
+                <p>Room Revenue: $@ViewBag.RoomRevenue</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card text-white bg-danger mb-3">
+            <div class="card-header">No-Show Charges</div>
+            <div class="card-body">
+                <h3>$@ViewBag.NoShowRevenue</h3>
+                <p>@ViewBag.NoShowCount guests billed</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<h3 class="mt-4">No-Show Guests (Auto-Billed at 7:00 PM)</h3>
+@if (ViewBag.NoShows != null && ((System.Collections.IList)ViewBag.NoShows).Count > 0)
+{
+    <table class="table table-bordered table-hover">
+        <thead class="table-dark">
+            <tr>
+                <th>Guest Name</th>
+                <th>Reservation Dates</th>
+                <th>Room Type</th>
+                <th>Amount Charged</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var ns in ViewBag.NoShows)
+            {
+                <tr>
+                    <td>@ns.FullName</td>
+                    <td>@ns.ArrivalDate.ToString("dd/MM") – @ns.DepartureDate.ToString("dd/MM")</td>
+                    <td>@ns.RoomType</td>
+                    <td>$@ns.Amount</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p class="text-muted">No no-shows today.</p>
+}

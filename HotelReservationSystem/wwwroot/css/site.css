@@ -1,0 +1,15 @@
+/* Custom styles */
+body {
+    padding-top: 0;
+}
+
+.navbar-brand {
+    font-weight: bold;
+    color: #2c3e50 !important;
+}
+
+footer {
+    margin-top: 50px;
+    padding: 20px 0;
+    background-color: #f8f9fa;
+}

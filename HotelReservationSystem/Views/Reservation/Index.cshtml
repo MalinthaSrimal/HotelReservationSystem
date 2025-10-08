@@ -1,0 +1,56 @@
+﻿@{
+    ViewData["Title"] = "My Reservations";
+}
+
+<h2>My Reservations</h2>
+
+@if (ViewBag.Reservations != null && ((System.Collections.IList)ViewBag.Reservations).Count > 0)
+{
+    <div class="table-responsive">
+        <table class="table table-striped table-hover">
+            <thead class="table-dark">
+                <tr>
+                    <th>Reservation ID</th>
+                    <th>Guest</th>
+                    <th>Room Type</th>
+                    <th>Dates</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var res in ViewBag.Reservations)
+                {
+                    <tr>
+                        <td>@res.ReservationId</td>
+                        <td>@res.FullName</td>
+                        <td>@res.RoomType</td>
+                        <td>@res.ArrivalDate.ToString("dd/MM/yyyy") – @res.DepartureDate.ToString("dd/MM/yyyy")</td>
+                        <td>
+                            @if (res.IsConfirmed)
+                            {
+                                <span class="badge bg-success">Confirmed</span>
+                            }
+                            else
+                            {
+                                <span class="badge bg-warning text-dark">Pending (No CC)</span>
+                            }
+                        </td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@res.ReservationId" class="btn btn-sm btn-outline-primary">Edit</a>
+                            <a asp-action="Cancel" asp-route-id="@res.ReservationId" class="btn btn-sm btn-outline-danger">Cancel</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+else
+{
+    <div class="alert alert-info">
+        You have no reservations. <a asp-action="Create">Make one now!</a>
+    </div>
+}
+
+<a asp-action="Create" class="btn btn-primary mt-3">➕ New Reservation</a>

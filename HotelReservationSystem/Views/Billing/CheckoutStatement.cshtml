@@ -1,0 +1,63 @@
+﻿@{
+    ViewData["Title"] = "Checkout Statement";
+}
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header text-center bg-primary text-white">
+                    <h4>Grand Hotel – Checkout Statement</h4>
+                </div>
+                <div class="card-body">
+                    <p><strong>Guest:</strong> @ViewBag.Bill.FullName</p>
+                    <p><strong>Room:</strong> @ViewBag.Bill.RoomId</p>
+                    <p><strong>Stay:</strong> @ViewBag.Bill.CheckInDate.ToString("dd/MM/yyyy") – @ViewBag.Bill.CheckOutDate.ToString("dd/MM/yyyy") (@ViewBag.Bill.Nights nights)</p>
+                    <hr />
+
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Description</th>
+                                <th>Amount ($)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Room Charge (@ViewBag.Bill.Nights night(s))</td><td>@ViewBag.Bill.RoomCharge</td></tr>
+                            @if (ViewBag.Bill.Restaurant > 0)
+                            {
+                                <tr><td>Restaurant</td><td>@ViewBag.Bill.Restaurant</td></tr>
+                            }
+                            @if (ViewBag.Bill.RoomService > 0)
+                            {
+                                <tr><td>Room Service</td><td>@ViewBag.Bill.RoomService</td></tr>
+                            }
+                            @if (ViewBag.Bill.Laundry > 0)
+                            {
+                                <tr><td>Laundry</td><td>@ViewBag.Bill.Laundry</td></tr>
+                            }
+                            @if (ViewBag.Bill.OverstayCharge > 0)
+                            {
+                                <tr><td>Extra Night Charge</td><td>@ViewBag.Bill.OverstayCharge</td></tr>
+                            }
+                        </tbody>
+                        <tfoot>
+                            <tr class="table-success">
+                                <th>Total Amount Due</th>
+                                <th>@ViewBag.Bill.TotalAmount</th>
+                            </tr>
+                        </tfoot>
+                    </table>
+
+                    <p><strong>Payment Method:</strong> @ViewBag.Bill.PaymentMethod</p>
+                    <p class="text-success"><strong>✅ Payment Completed</strong></p>
+
+                    <div class="text-center mt-4">
+                        <button onclick="window.print()" class="btn btn-outline-secondary">🖨️ Print Receipt</button>
+                        <a asp-controller="Home" asp-action="Index" class="btn btn-primary">🏠 Back to Home</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

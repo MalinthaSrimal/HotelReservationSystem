@@ -1,0 +1,40 @@
+﻿@{
+    ViewData["Title"] = "Home";
+}
+
+<div class="jumbotron text-center bg-light p-5 rounded">
+    <h1 class="display-4">Welcome to Grand Hotel</h1>
+    <p class="lead">Book your stay, manage reservations, and enjoy premium service.</p>
+    <hr class="my-4">
+    <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+        <a class="btn btn-primary btn-lg" asp-controller="Reservation" asp-action="Create">Make a Reservation</a>
+        <a class="btn btn-outline-secondary btn-lg" asp-controller="Customer" asp-action="CheckIn">Check In Now</a>
+    </div>
+</div>
+
+<div class="row mt-5">
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body text-center">
+                <h5>Flexible Booking</h5>
+                <p>Reserve with or without credit card. Modify or cancel anytime.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body text-center">
+                <h5>Residential Suites</h5>
+                <p>Stay weekly or monthly at special rates for long-term guests.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body text-center">
+                <h5>Travel Partners</h5>
+                <p>Agencies: Block 3+ rooms at discounted group rates.</p>
+            </div>
+        </div>
+    </div>
+</div>

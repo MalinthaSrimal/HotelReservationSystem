@@ -1,0 +1,43 @@
+﻿@{
+    ViewData["Title"] = "Edit Reservation";
+}
+
+<h2>Edit Reservation #@ViewBag.ReservationId</h2>
+
+<form asp-action="Edit" method="post">
+    <input type="hidden" name="ReservationId" value="@ViewBag.ReservationId" />
+
+    <div class="row mb-3">
+        <div class="col-md-6">
+            <label class="form-label">Full Name</label>
+            <input type="text" name="FullName" class="form-control" value="@ViewBag.FullName" required />
+        </div>
+        <div class="col-md-6">
+            <label class="form-label">Email</label>
+            <input type="email" name="Email" class="form-control" value="@ViewBag.Email" required />
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-md-4">
+            <label class="form-label">Room Type</label>
+            <select name="RoomType" class="form-select" required>
+                <option value="Standard" selected="@(ViewBag.RoomType == "Standard")">Standard Room</option>
+                <option value="Deluxe" selected="@(ViewBag.RoomType == "Deluxe")">Deluxe Room</option>
+                <option value="Suite" selected="@(ViewBag.RoomType == "Suite")">Executive Suite</option>
+                <option value="ResidentialSuite" selected="@(ViewBag.RoomType == "ResidentialSuite")">Residential Suite</option>
+            </select>
+        </div>
+        <div class="col-md-4">
+            <label class="form-label">New Arrival</label>
+            <input type="date" name="ArrivalDate" class="form-control" value="@ViewBag.ArrivalDate.ToString("yyyy-MM-dd")" required />
+        </div>
+        <div class="col-md-4">
+            <label class="form-label">New Departure</label>
+            <input type="date" name="DepartureDate" class="form-control" value="@ViewBag.DepartureDate.ToString("yyyy-MM-dd")" required />
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-warning">🔄 Update Reservation</button>
+    <a asp-action="Index" class="btn btn-secondary">Back</a>
+</form>
